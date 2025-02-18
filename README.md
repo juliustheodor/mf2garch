@@ -25,3 +25,8 @@ Please address any questions about the Matlab code to:
 Julius Schoelkopf, Heidelberg University, Department of Economics. Email: julius.schoelkopf [at] awi.uni-heidelberg.de 
 
 We do not assume any responsibilities for results produced with the available code. Please let me know, if you have suggestions for further versions or find any bugs. 
+
+# Example 
+```matlab
+[coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions); 
+```
