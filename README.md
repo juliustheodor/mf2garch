@@ -1,8 +1,13 @@
-# 
+# MF2-GARCH Toolbox for Matlab (developed by Christian Conrad and Julius Schoelkopf, 2025)
 
-Foobar is a Python library for dealing with word pluralization.
+A Matlab package for estimating and forecasting using the multiplicative factor multi-frequency GARCH (MF2-GARCH)  as proposed in Conrad & Engle (2025) accompanying the paper „ Long-term volatility shapes the stock markets sensitivity to news“ by Conrad, Schoelkopf, and Tushteva (2024): 
+
+* A comprehensive toolbox for estimating and forecasting using the MF2-GARCH-rw-m.
+* Five applications: estimation, news-impact-curve, illustration of long-term component, out-of-sample forecasting, illustration of forecasting behavior 
+
 
 ## Installation
+
 
 
 ## Suggested Citation
