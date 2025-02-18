@@ -27,6 +27,9 @@ Julius Schoelkopf, Heidelberg University, Department of Economics. Email: julius
 We do not assume any responsibilities for results produced with the available code. Please let me know, if you have suggestions for further versions or find any bugs. 
 
 # Example 
+
+The following line of code replicates the second panel in Table 2 in Conrad & Engle (2025) for the MF2-GARCH-rw-m. In Conrad & Engle (2025) all models were estimates using OxMetrics. Bollerslev-Wooldridge robust standard errors are reported. The Matlab function uses constraints on the parameters following assumption 2 (for the short-term component) and assumption 3 (for the long-term component) of Conrad & Engle (2025). For the fitted values, we discard the first two years of y (i.e., 2 times 252 trading days) to account for lags of the squared deGARCHed returns when comparing models using the BIC. You could decrease this, but you need to discard at least 2m values. For details on the estimation, see section A.1.1 in Conrad & Engle (2025). 
+
 ```matlab
 [coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions); 
 ```
