@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # MF2-GARCH Toolbox for Matlab (developed by Christian Conrad and Julius Schoelkopf, 2025)
 
 A Matlab package for estimating and forecasting using the multiplicative factor multi-frequency GARCH (MF2-GARCH)  as proposed in Conrad & Engle (2025) accompanying the paper „ Long-term volatility shapes the stock markets sensitivity to news“ by Conrad, Schoelkopf, and Tushteva (2024): 
@@ -18,3 +20,5 @@ Alternatively, you can cite the toolbox: Conrad, Christian and Julius Schoelkopf
 ## Contact 
 Please address any questions about the Matlab code to:
 Julius Schoelkopf, Heidelberg University, Department of Economics. Email: julius.schoelkopf [at] awi.uni-heidelberg.de 
+
+We do not assume any responsibilities for results produced with the available code. Please let me know, if you have suggestions for further versions or find any bugs. 
