@@ -33,3 +33,5 @@ The following line of code replicates the second panel in Table 2 in Conrad & En
 ```matlab
 [coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions); 
 ```
+
+<img src="figures/ForecastEndofSample.png" width="100%" />
