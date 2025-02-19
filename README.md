@@ -90,7 +90,7 @@ Annualized unconditional volatility = 16.043
 ==============================================================================
 ```
 
-If you additionally want to have the fitted values, specify the output as follows 
+If you additionally want to store the fitted values, specify the output as follows 
 ```matlab
 [coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions);
 ```
