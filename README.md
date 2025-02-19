@@ -117,11 +117,11 @@ The function exports the following figure in the figures folder:
 
 ## Forecasting at the end of the sample 
 
-First, you need to specifiy the maximum forecasting horizon using ```foptions.S = 250```. Next, you can use the forecasting function: 
+First, you need to specifiy the maximum forecasting horizon using ```foptions.S```, e.g. ```foptions.S = 250``` if you want to forecast the next 250 days. Next, you can use the forecasting function that provides forecasts for the (annualized) conditional volatility, the short- and (annualized) long-term component: 
 ```matlab
 [horizon, forecast, an_vola_forecast, h_forecast, tau_forecast, tau_forecast_annual]  = mf2_garch_forecasting(y, Z, h, tau, coeff, foptions);
 ```
-Moreover, the function displays the forecasts (from the end of the sample) for the annualized volatility on the next day, next week (5 days), next month (21 days), next 6 months (126 days), and 12 months (252 days) based on the estimated parameters. You must use the same sample as in estimation function for the forecasting function. 
+Moreover, the function displays in the command window the forecasts (from the end of the sample) for the annualized volatility on the next day, next week (5 days), next month (21 days), next 6 months (126 days), and 12 months (252 days) based on the estimated parameters. You must use the same sample as in estimation function for the forecasting function. 
 
 We now want to illustrate forecasting out of sample using a figure. The following code yields a figure of the forecasts of the conditional volatility and the long-term component in the last 50 days of the sample and the forecasts for the next S days: 
 ```matlab
