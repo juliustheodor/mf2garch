@@ -5,11 +5,6 @@ A Matlab package for estimating and forecasting using the multiplicative factor 
 * A comprehensive toolbox for estimating and forecasting using the MF2-GARCH-rw-m.
 * Five applications: estimation, news-impact-curve, illustration of long-term component, out-of-sample forecasting, illustration of forecasting behavior 
 
-
-## Installation
-
-
-
 ## Suggested Citation
 Please cite as: 
 > Conrad, Christian and Schoelkopf, Julius Theodor and Tushteva, Nikoleta, Long-Term Volatility Shapes the Stock Market's Sensitivity to News (2024). Available at SSRN:  http://dx.doi.org/10.2139/ssrn.4632733
@@ -20,14 +15,17 @@ and
 
 ## Contact 
 Please address any questions about the Matlab code to:
-* Christian Conrad,  Heidelberg University, Department of Economics. Email:christian.conrad [at] awi.uni-heidelberg.de 
+* Christian Conrad,  Heidelberg University, Department of Economics. Email: christian.conrad [at] awi.uni-heidelberg.de 
 * Julius Schoelkopf, Heidelberg University, Department of Economics. Email: julius.schoelkopf [at] awi.uni-heidelberg.de 
 
 We do not assume any responsibilities for results produced with the available code. Please let us know, if you have suggestions for further versions or find any bugs. 
 
-# Example 
+# Applications 
 
-The following line of code replicates the second panel in Table 2 in Conrad & Engle (2025) for the MF2-GARCH-rw-m. In Conrad & Engle (2025) all models were estimates using OxMetrics. Bollerslev-Wooldridge robust standard errors are reported. The Matlab function uses constraints on the parameters following assumption 2 (for the short-term component) and assumption 3 (for the long-term component) of Conrad & Engle (2025). For the fitted values, we discard the first two years of y (i.e., 2 times 252 trading days) to account for lags of the squared deGARCHed returns when comparing models using the BIC. You could decrease this, but you need to discard at least 2m values. For details on the estimation, see section A.1.1 in Conrad & Engle (2025). 
+## Estimation of the MF2-GARCH-rw-m model in Matlab 
+The following line of code replicates the second panel in Table 2 in Conrad & Engle (2025) for the MF2-GARCH-rw-m. In Conrad & Engle (2025), all models were estimates using OxMetrics. Bollerslev-Wooldridge robust standard errors are reported. The Matlab function uses constraints on the parameters following assumption 2 (for the short-term component) and assumption 3 (for the long-term component) of Conrad & Engle (2025). For the fitted values, we discard the first two years of y (i.e., 2 times 252 trading days) to account for lags of the squared deGARCHed returns when comparing models using the BIC. You could decrease this, but you need to discard at least 2m values. For details on the estimation, see section A.1.1 in Conrad & Engle (2025). 
+
+The function `mf2_garch_estimation(y,foptions)` gives you a  an estimation output in the command window as well as vectors for the  coefficients, the standard errors, the p-values, the shocks, the fitted values for the short and long-term component as well as the time series  for the (annualized) conditional variance and the estimate for the annualized unconditional volatility. 
 
 ```matlab
 [coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions); 
