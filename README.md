@@ -114,3 +114,11 @@ Alternatively, you can plot the news-impact-curve for the estimated model. Follo
 The function exports the following figure in the figures folder: 
 
 <img src="figures/NIC.png" width="50%" />
+
+## Forecasting at the end of the sample 
+
+
+## Illustration of Forecasting behavior 
+
+
+
