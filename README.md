@@ -150,15 +150,13 @@ Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance
 % Specifiy the maximum forecasting horizon: 
 foptions.S = 120; 
 
-% Estimation of the MF2-GARCH We want to forecast volatility from August 10, 2011 (10249 in dates
-% vector) 150 days into the future. Specify the cutoff from where you want to forecast: 
+% Estimation of the MF2-GARCH We want to forecast volatility from August 10, 2011 (10249 in dates vector) 150 days into the future. Specify the cutoff from where you want to forecast: 
 foptions.cutoff_date = datetime(2011,8,10);  
 foptions.cutoff = 10249; 
 % Therefore, we need to reestimate the model using data until August 10, 2011. 
 [coeff, ~, ~, Z, h, tau, ~, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y(1:foptions.cutoff),foptions); 
 
-% Forecasting exercise 
-% This function provides forecasts for the annualized volatility, h and tau for the next S days from the end of the specified sample. 
+% Forecasting exercise: This function provides forecasts for the annualized volatility, h and tau for the next S days from the end of the specified sample. 
 [horizon, forecast, an_vola_forecast, h_forecast, tau_forecast, tau_forecast_annual]  = mf2_garch_forecasting(y(1:cutoff), Z, h, tau, coeff, foptions);
 
 % Illustration of forecasting behaviour as in Figure 5 from Conrad & Engle (2025): 
