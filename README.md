@@ -64,7 +64,8 @@ foptions.m=63;
 %  Example A (Estimation) for regresion output: 
 mf2_garch_estimation(y,foptions); 
 ```
-
+This yields the following output in the command window: 
+```matlab
 ===================== Estimation results MF2-GARCH-rw-m =====================
 
 The optimal m was specified by the user: m = 63
@@ -87,6 +88,6 @@ Covariance stationarity condition satisfied (see Conrad and Engle (2025),
 equation (7)): Gamma_m = 0.778
 Annualized unconditional volatility = 16.043
 ==============================================================================
-
+```
 
 <img src="figures/ForecastEndofSample.png" width="80%" />
