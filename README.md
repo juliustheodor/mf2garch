@@ -127,7 +127,7 @@ We now want to illustrate forecasting out of sample using a figure. The followin
 ```matlab
 mf2_garch_out_of_sample_figure(sigma_annual, an_vola_forecast, tau_forecast_annual, annual_unconditional_vola, foptions)
 ```
-
+<img src="figures/ForecastEndofSample.png" width="50%" />
 
 ## Illustration of Forecasting behavior 
 
