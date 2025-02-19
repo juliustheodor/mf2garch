@@ -20,9 +20,10 @@ and
 
 ## Contact 
 Please address any questions about the Matlab code to:
+Christian Conrad,  Heidelberg University, Department of Economics. Email:christian.conrad [at] awi.uni-heidelberg.de 
 Julius Schoelkopf, Heidelberg University, Department of Economics. Email: julius.schoelkopf [at] awi.uni-heidelberg.de 
 
-We do not assume any responsibilities for results produced with the available code. Please let me know, if you have suggestions for further versions or find any bugs. 
+We do not assume any responsibilities for results produced with the available code. Please let us know, if you have suggestions for further versions or find any bugs. 
 
 # Example 
 
