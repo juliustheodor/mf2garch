@@ -94,7 +94,7 @@ If you additionally want to have the fitted values, specify the output as follow
 ```matlab
 [coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions);
 ```
-You can use this output for instance for a figure of the estimated conditional volatility and long-term volatility over the full-sample. For this figure, we use annualized quantitities. Grey shaded areas represent NBER recession periods for the US.
+You can use this output for instance for a figure of the estimated conditional volatility and long-term volatility over the full-sample. The figure shows the estimated conditional volatility, $\sqrt{h_t \tau_t}$, (black line) and longterm volatility, $\sqrt{\tau_t}$, (red line) from the MF2-GARCH-rw-$63$ model for the daily S\&P 500 returns. Grey shaded areas represent NBER recession periods for the US.
 ```matlab
 % Extract the date column (not required for estimation, only for figure) 
 dates = datetime(Returns.OBS, 'InputFormat', 'MM/dd/yyyy'); 
@@ -120,5 +120,5 @@ The function exports the following figure in the figures folder:
 
 ## Illustration of Forecasting behavior 
 
-<img src="figures/ForecastIllustration_wide.png" width="50%" />
-
+<img src="figures/ForecastIllustration_wide.png" width="80%" />
+The figure shows the conditional volatility (solid black line) from an MF2-GARCH-rw-m model with $m = 63$ estimated for S&P 500 returns. From August 10, 2011 (indicated by the black vertical line) onwards, we compute volatility forecasts (dashed black line) for 120 days in the future. The plot also shows the long-term components (red line) and the forecast of long-term volatility (dashed red line). All quantities are annualized. 
