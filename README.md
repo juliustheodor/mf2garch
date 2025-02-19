@@ -121,8 +121,22 @@ First, you need to specifiy the maximum forecasting horizon using ```foptions.S`
 ```matlab
 [horizon, forecast, an_vola_forecast, h_forecast, tau_forecast, tau_forecast_annual]  = mf2_garch_forecasting(y, Z, h, tau, coeff, foptions);
 ```
-Moreover, the function displays in the command window the forecasts (from the end of the sample) for the annualized volatility on the next day, next week (5 days), next month (21 days), next 6 months (126 days), and 12 months (252 days) based on the estimated parameters. You must use the same sample as in estimation function for the forecasting function. 
+You must use the same sample as in estimation function for the forecasting function. Moreover, the function displays in the command window the forecasts (from the end of the sample) for the annualized volatility on the next day, next week (5 days), next month (21 days), next 6 months (126 days), and 12 months (252 days) based on the estimated parameters. 
+```matlab
+annualized volatility forecast 1 day: 53.2229
 
+annualized volatility forecast 1 week (5 days):  49.2739
+
+annualized volatility forecast 1 moth (21 days):  34.4209
+
+annualized volatility forecast 1 day:  46.3527
+
+annualized volatility forecast 1 week (5 days): 43.0904
+
+annualized volatility forecast 1 moth (21 days):  30.8893
+
+annualized volatility forecast 6 moths (126 days):  18.2700
+```
 We now want to illustrate forecasting out of sample using a figure. The following code yields a figure of the forecasts of the conditional volatility and the long-term component in the last 50 days of the sample and the forecasts for the next S days: 
 ```matlab
 mf2_garch_out_of_sample_figure(sigma_annual, an_vola_forecast, tau_forecast_annual, annual_unconditional_vola, foptions)
