@@ -103,4 +103,5 @@ dates = datetime(Returns.OBS, 'InputFormat', 'MM/dd/yyyy');
 mf2_garch_time_series(dates, sigma_annual, tau_annual);
 ```
 The function exports the following figure in the figures folder: 
+
 <img src="figures/TimeSeries.png" width="50%" />
