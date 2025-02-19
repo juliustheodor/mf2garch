@@ -120,5 +120,5 @@ The function exports the following figure in the figures folder:
 
 ## Illustration of Forecasting behavior 
 
-
+<img src="figures/ForecastIllustration_wide.png" width="50%" />
 
