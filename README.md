@@ -33,7 +33,7 @@ and the long-term component is specified as a MEM equation for the conditional e
 ```
 where
 ```math
-V_{t-1}^{(m)}=\frac{1}{m} \sum_{j=1}^m V_{t-j}=\frac{1}{m} \sum_{j=1}^m \frac{r_{t-j}^2}{h_{t-j}}.
+V_{t-1}^{(m)}=\frac{1}{m} \sum_{j=1}^m V_{t-j}=\frac{1}{m} \sum_{j=1}^m \frac{y_{t-j}^2}{h_{t-j}}.
 ```
 The estimation of this model can be done using the following function from our toolbox in Matlab
 ```matlab
