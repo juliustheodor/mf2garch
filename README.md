@@ -130,7 +130,22 @@ mf2_garch_out_of_sample_figure(sigma_annual, an_vola_forecast, tau_forecast_annu
 <img src="figures/ForecastEndofSample.png" width="50%" />
 
 ## Illustration of Forecasting behavior 
-Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance.
-<img src="figures/ForecastIllustration_wide.png" width="80%" />
+Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance. We want to forecast volatility from August 10, 2011 (10249 in dates vector) 150 days into the future and use the forecasting function:  
 
-The figure shows the conditional volatility (solid black line) from an MF2-GARCH-rw-m model with $m = 63$ estimated for S&P 500 returns. From August 10, 2011 (indicated by the black vertical line) onwards, we compute volatility forecasts (dashed black line) for 120 days in the future. The plot also shows the long-term components (red line) and the forecast of long-term volatility (dashed red line). All quantities are annualized.  In the medium run, the forecast for the conditional volatility converges towards the forecast of the long-term component (dashed red line). That is, the forecast decreases below the unconditional volatility. Only in the very long run, the MF2-GARCH forecast will converge towards the unconditional volatility. This illustrates that the MF2-GARCH forecast captures the empirical observation that there are persistent cyclical movements of the conditional volatility around the unconditional volatility.
+```matlab
+% Specify the cutoff from where you want to forecast: 
+cutoff_date = datetime(2011,8,10);  
+cutoff = 10249; 
+% Therefore, we need to reestimate the model using data until August 10, 2011. 
+[coeff, ~, ~, Z, h, tau, ~, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y(1:cutoff),foptions); 
+
+% Forecasting exercise 
+% This function provides forecasts for the annualized volatility, h and tau for the next S days from the end of the specified sample. 
+[horizon, forecast, an_vola_forecast, h_forecast, tau_forecast, tau_forecast_annual]  = mf2_garch_forecasting(y(1:cutoff), Z, h, tau, coeff, foptions);
+
+% Illustration of forecasting behaviour as in Figure 5 from Conrad & Engle (2025): 
+mf2_garch_illustration_forecasting_figure(sigma_annual, an_vola_forecast, tau_forecast_annual, annual_unconditional_vola, foptions, dates, cutoff_date, cutoff)
+```
+
+<img src="figures/ForecastIllustration_wide.png" width="80%" />
+The figure is saved as 'ForecastIllustration.png' in the figures folder. The figure shows the conditional volatility (solid black line) from an MF2-GARCH-rw-m model with $m = 63$ estimated for S&P 500 returns. From August 10, 2011 (indicated by the black vertical line) onwards, we compute volatility forecasts (dashed black line) for 120 days in the future. The plot also shows the long-term components (red line) and the forecast of long-term volatility (dashed red line). All quantities are annualized.  In the medium run, the forecast for the conditional volatility converges towards the forecast of the long-term component (dashed red line). That is, the forecast decreases below the unconditional volatility. Only in the very long run, the MF2-GARCH forecast will converge towards the unconditional volatility. This illustrates that the MF2-GARCH forecast captures the empirical observation that there are persistent cyclical movements of the conditional volatility around the unconditional volatility.
