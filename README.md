@@ -90,4 +90,17 @@ Annualized unconditional volatility = 16.043
 ==============================================================================
 ```
 
-<img src="figures/ForecastEndofSample.png" width="80%" />
+If you additionally want to have the fitted values, specify the output as follows 
+```matlab
+[coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions);
+```
+You can use this output for instance for a figure of the estimated conditional volatility and long-term volatility over the full-sample. For this figure, we use annualized quantitities. Grey shaded areas represent NBER recession periods for the US.
+```matlab
+% Extract the date column (not required for estimation, only for figure) 
+dates = datetime(Returns.OBS, 'InputFormat', 'MM/dd/yyyy'); 
+
+% Figure of time series
+mf2_garch_time_series(dates, sigma_annual, tau_annual);
+```
+The function exports the following figure in the figures folder: 
+<img src="figures/Time Series.png" width="50%" />
