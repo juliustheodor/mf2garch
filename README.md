@@ -35,7 +35,7 @@ where
 ```math
 V_{t-1}^{(m)}=\frac{1}{m} \sum_{j=1}^m V_{t-j}=\frac{1}{m} \sum_{j=1}^m \frac{y_{t-j}^2}{h_{t-j}}.
 ```
-The estimation of this model can be done using the following function from our toolbox in Matlab
+The MF2-GARCH can be estimated using the following function from our toolbox in Matlab
 ```matlab
 [coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions); 
 ```
