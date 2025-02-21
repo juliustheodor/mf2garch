@@ -1,12 +1,16 @@
 # MF2-GARCH Toolbox for Matlab (developed by Christian Conrad and Julius Schoelkopf, 2025)
 
-A Matlab package for estimating and forecasting using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed in paper ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](http://dx.doi.org/10.2139/ssrn.3793571) accompanying the paper ["Long-term volatility shapes the stock markets sensitivity to news“ by Conrad, Schoelkopf, and Tushteva (2024)](http://dx.doi.org/10.2139/ssrn.4632733): 
+A Matlab package for estimating and forecasting volatility using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed in ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](http://dx.doi.org/10.2139/ssrn.3793571). The MF2-GARCH is used in ["Long-term volatility shapes the stock markets sensitivity to news“ by Conrad, Schoelkopf, and Tushteva (2024)](http://dx.doi.org/10.2139/ssrn.4632733): 
 
-* A comprehensive toolbox for estimating and forecasting using the MF2-GARCH-rw-m.
-* Code for five applications: estimation, news-impact-curve, illustration of long-term component, out-of-sample forecasting, illustration of forecasting behavior 
+* A comprehensive toolbox for estimating and forecasting volatility using the MF2-GARCH-rw-m.
+* Code for five applications: estimation, news impact curve, out-of-sample forecasting, illustration of forecasting behavior 
 
 ## Suggested Citation
 Please cite as: 
+> Conrad, Christian and Engle, Robert F., Modelling Volatility Cycles: The MF2-GARCH Model (2005). Journal of Applied Econometrics.
+ 
+and
+
 > Conrad, Christian and Schoelkopf, Julius Theodor and Tushteva, Nikoleta, Long-Term Volatility Shapes the Stock Market's Sensitivity to News (2024). Available at SSRN:  http://dx.doi.org/10.2139/ssrn.4632733
 
 and 
@@ -23,11 +27,11 @@ We do not assume any responsibilities for results produced with the available co
 # Applications 
 
 ## Estimation of the MF2-GARCH-rw-m model in Matlab for S&P 500 stock returns 
-Define daily log-returns as $y_t=\sigma_t Z_t=$ $\sqrt{h_t \tau_t} Z_t$ where $Z_t$ is i.i.d. and has a symmetric density with mean zero and variance one. $\sigma_t^2$ denotes the conditional variance and the short- and long-term volatility components are given by $h_t$ and $\tau_t$. Let `y` be this (Tx1) vector of daily log-returns. The short-term volatility component is defined as a unit variance GJR-GARCH(1,1)
+Define daily log-returns as $y_t=\sigma_t Z_t=$ $\sqrt{h_t \tau_t} Z_t$, where the $Z_t$ are i.i.d. with mean zero, variance one, and symmetric density. The fourth moment of the $Z_t$ is denoted by $\kappa$. $\sigma_t^2$ denotes the conditional variance and the short- and long-term volatility components are given by $h_t$ and $\tau_t$. Let `y` be a (Tx1) vector of daily log-returns. The short-term volatility component is defined as a unit variance GJR-GARCH(1,1)
 ```math
 h_t=(1-\phi)+\left(\alpha+\gamma \mathbf{1}_{\left\{y_{t-1}<0\right\}}\right) \frac{y_{t-1}^2}{\tau_{t-1}}+\beta h_{t-1}
 ```
-and the long-term component is specified as a MEM equation for the conditional expectation of $V_t$ (squared deGARCHed returns):
+and the long-term component is specified as a MEM equation for the conditional expectation of $V_t = y_t^2/h_t$  (squared deGARCHed returns):
 ```math
 \tau_t=\lambda_0+\lambda_1 V_{t-1}^{(m)}+\lambda_2 \tau_{t-1}
 ```
@@ -35,7 +39,7 @@ where
 ```math
 V_{t-1}^{(m)}=\frac{1}{m} \sum_{j=1}^m V_{t-j}=\frac{1}{m} \sum_{j=1}^m \frac{y_{t-j}^2}{h_{t-j}}.
 ```
-The estimation of this model can be done using the following function from our toolbox in Matlab
+The MF2-GARCH can be estimated using the following function from our toolbox in Matlab
 ```matlab
 [coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions); 
 ```
