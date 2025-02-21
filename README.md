@@ -98,7 +98,7 @@ If you additionally want to store the fitted values, specify the output of the f
 ```matlab
 [coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions);
 ```
-You can use this output for instance for a figure of the estimated conditional volatility and long-term volatility over the full-sample. The figure shows the estimated conditional volatility (black line) and longterm volatility (red line) from the MF2-GARCH-rw-63 model for the daily S\&P 500 returns. Grey shaded areas represent NBER recession periods for the US.
+You can use this output for instance for a figure of the estimated conditional volatility and long-term volatility over the full-sample. The figure shows the estimated conditional volatility (black line) and long-term volatility (red line) from the MF2-GARCH-rw-63 model for the daily S\&P 500 returns. Grey shaded areas represent NBER recession periods for the US.
 ```matlab
 % Extract the date column (not required for estimation, only for figure) 
 dates = datetime(Returns.OBS, 'InputFormat', 'MM/dd/yyyy'); 
