@@ -148,7 +148,7 @@ mf2_garch_out_of_sample_figure(sigma_annual, an_vola_forecast, tau_forecast_annu
 <img src="figures/ForecastEndofSample.png" width="50%" />
 
 ## Illustration of Forecasting behavior 
-Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance. We want to forecast volatility from August 10, 2011 (10249 in dates vector) 150 days into the future and use the forecasting function:  
+Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance, as in Figure 5 in Conrad & Engle (2025. We want to forecast volatility from August 10, 2011 (10249 in dates vector) 150 days into the future and use the forecasting function:  
 
 ```matlab
 % Specifiy the maximum forecasting horizon: 
