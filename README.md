@@ -86,8 +86,8 @@ Estimated fourth moment of the innovations: kappa = 5.441
     {'lambda_1'}       0.11183        0.046429         0.016013       "**"     
     {'lambda_2'}       0.87014        0.051675                0       "***"    
 
-Output reports Bollerslev-Wooldridge robust standard errors (see Conrad and Engle (2025), 
-equation (27)).
+Output reports Bollerslev-Wooldridge robust standard errors (see Conrad and
+Engle (2025), equation (27)).
 Covariance stationarity condition satisfied (see Conrad and Engle (2025),
 equation (7)): Gamma_m = 0.778
 Annualized unconditional volatility = 16.043
