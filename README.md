@@ -110,7 +110,7 @@ The function exports the following figure in the figures folder:
 
 <img src="figures/TimeSeries.png" width="50%" />
 
-Alternatively, you can plot the news-impact-curve for the estimated model. Following Engle and Ng (1993), we use the NIC to illustrate how the conditional volatility is updated in response to new information. The NIC is presented in term of annualized volatilities (see equation (10) in Conrad & Engle (2025)). The following function provides a figure for the NIC: 
+Additionally, you can plot the news impact curve for the estimated model. Following Engle and Ng (1993), we use the NIC to illustrate how the conditional volatility is updated in response to new information. The NIC is presented in term of annualized volatilities (see equation (10) in Conrad & Engle (2025)). The following function provides a figure for the NIC: 
 ```matlab
 [ r, NIC] = mf2_garch_nic(Z, h, tau, foptions, coeff);
 ```
@@ -148,7 +148,7 @@ mf2_garch_out_of_sample_figure(sigma_annual, an_vola_forecast, tau_forecast_annu
 <img src="figures/ForecastEndofSample.png" width="50%" />
 
 ## Illustration of Forecasting behavior 
-Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance, as in Figure 5 in Conrad & Engle (2025. We want to forecast volatility from August 10, 2011 (10249 in dates vector) 150 days into the future and use the forecasting function:  
+Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance, as in Figure 5 in Conrad & Engle (2025. We want to forecast volatility from August 10, 2011 (10249 in dates vector) 120 days into the future and use the forecasting function:  
 
 ```matlab
 % Specifiy the maximum forecasting horizon: 
@@ -170,4 +170,4 @@ The following figure is saved as 'ForecastIllustration.png' in the figures folde
 
 <img src="figures/ForecastIllustration_wide.png" width="80%" />
 
-The figure shows the conditional volatility (solid black line) from an MF2-GARCH-rw-m model with $m = 63$ estimated for S&P 500 returns. From August 10, 2011 (indicated by the black vertical line) onwards, we compute volatility forecasts (dashed black line) for 120 days in the future. The plot also shows the long-term components (red line) and the forecast of long-term volatility (dashed red line). All quantities are annualized.  In the medium run, the forecast for the conditional volatility converges towards the forecast of the long-term component (dashed red line). That is, the forecast decreases below the unconditional volatility. Only in the very long run, the MF2-GARCH forecast will converge towards the unconditional volatility. This illustrates that the MF2-GARCH forecast captures the empirical observation that there are persistent cyclical movements of the conditional volatility around the unconditional volatility.
+The figure shows the conditional volatility (solid black line) from an MF2-GARCH-rw-m model with $m = 63$ estimated for S&P 500 returns. From August 10, 2011 (indicated by the black vertical line) onwards, we compute volatility forecasts (dashed black line) for 120 days in the future. The plot also shows the long-term components (red line) and the forecast of long-term volatility (dashed red line). All quantities are annualized. In the medium run, the forecast for the conditional volatility converges towards the forecast of the long-term component (dashed red line). In the very long run, the MF2-GARCH forecast will converge towards the unconditional volatility. This illustrates that the MF2-GARCH forecast captures the empirical observation that there are persistent cyclical movements of the conditional volatility around the unconditional volatility.
