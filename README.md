@@ -110,7 +110,7 @@ The function exports the following figure in the figures folder:
 
 <img src="figures/TimeSeries.png" width="50%" />
 
-Alternatively, you can plot the news-impact-curve for the estimated model. Following Engle and Ng (1993), we use the NIC to illustrate how the conditional volatility is updated in response to new information. The NICs are standardized such that news impact is zero for r_t = 0 and presented as annualized volatilities (see equation (10) in Conrad & Engle (2025)). The following function provides a figure for the NIC: 
+Alternatively, you can plot the news-impact-curve for the estimated model. Following Engle and Ng (1993), we use the NIC to illustrate how the conditional volatility is updated in response to new information. The NIC is presented in term of annualized volatilities (see equation (10) in Conrad & Engle (2025)). The following function provides a figure for the NIC: 
 ```matlab
 [ r, NIC] = mf2_garch_nic(Z, h, tau, foptions, coeff);
 ```
