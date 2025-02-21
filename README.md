@@ -1,6 +1,6 @@
 # MF2-GARCH Toolbox for Matlab (developed by Christian Conrad and Julius Schoelkopf, 2025)
 
-A Matlab package for estimating and forecasting volatility using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed in paper ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](http://dx.doi.org/10.2139/ssrn.3793571). The MF2-GARCH is used in ["Long-term volatility shapes the stock markets sensitivity to news“ by Conrad, Schoelkopf, and Tushteva (2024)](http://dx.doi.org/10.2139/ssrn.4632733): 
+A Matlab package for estimating and forecasting volatility using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](http://dx.doi.org/10.2139/ssrn.3793571). The MF2-GARCH is used in ["Long-term volatility shapes the stock markets sensitivity to news“ by Conrad, Schoelkopf, and Tushteva (2024)](http://dx.doi.org/10.2139/ssrn.4632733): 
 
 * A comprehensive toolbox for estimating and forecasting volatility using the MF2-GARCH-rw-m.
 * Code for five applications: estimation, news-impact-curve, illustration of long-term component, out-of-sample forecasting, illustration of forecasting behavior 
