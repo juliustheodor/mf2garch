@@ -7,6 +7,10 @@ A Matlab package for estimating and forecasting volatility using the multiplicat
 
 ## Suggested Citation
 Please cite as: 
+> Conrad, Christian and Engle, Robert F., Modelling Volatility Cycles: The MF2-GARCH Model (2005). Journal of Applied Econometrics.
+ 
+and
+
 > Conrad, Christian and Schoelkopf, Julius Theodor and Tushteva, Nikoleta, Long-Term Volatility Shapes the Stock Market's Sensitivity to News (2024). Available at SSRN:  http://dx.doi.org/10.2139/ssrn.4632733
 
 and 
