@@ -31,7 +31,7 @@ Define daily log-returns as $y_t=\sigma_t Z_t=$ $\sqrt{h_t \tau_t} Z_t$, where t
 ```math
 h_t=(1-\phi)+\left(\alpha+\gamma \mathbf{1}_{\left\{y_{t-1}<0\right\}}\right) \frac{y_{t-1}^2}{\tau_{t-1}}+\beta h_{t-1}
 ```
-and the long-term component is specified as a MEM equation for the conditional expectation of $V_t$ (squared deGARCHed returns):
+and the long-term component is specified as a MEM equation for the conditional expectation of $V_t = y_t^2/h_t$  (squared deGARCHed returns):
 ```math
 \tau_t=\lambda_0+\lambda_1 V_{t-1}^{(m)}+\lambda_2 \tau_{t-1}
 ```
