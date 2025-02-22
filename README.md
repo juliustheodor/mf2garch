@@ -46,7 +46,7 @@ The MF2-GARCH can be estimated using the following function from our toolbox in 
 
 The function `mf2_garch_estimation(y,foptions)` gives you an estimation output for the seven parameters $\left(\mu, \alpha, \gamma, \beta, \lambda_0, \lambda_1, \lambda_2\right)$ of the short- and long-term component in the command window obtained by maximizing the log likelihood. The output of the function are the vectors for the coefficient estimates (`coeff`), the Bollerslev-Wooldridge robust standard errors  (`qmle_se`), and the corresponding p-values  (`p_value_qmle`). Moreover, the function `mf2_garch_estimation(y,foptions)` provides you with the standardized residuals $Z$, the fitted values for the short (`h`) and long-term component (`tau` or annualized `tau_annual`) as well as the time series for annualized conditional volatility (`sigma_annual`) and the estimate for the annualized unconditional volatility (`annual_unconditional_vola`). 
 
-For the long-term component, you need to specify $m$, i.e. the number days over which $V_t^{(m)}$ is computed. Choose whether you want to use a fixed value of $m$ or let the optimal $m$ be selected as the one that minimizes the BIC. The `foptions` structure contains the researcher's choice for $m$. You either specifiy `foptions.choice = 'BIC'` if the optimal $m$ needs to be selected or `foptions.choice = 'fix'` together with the choice of your $m$ as `foptions.m=63`. When computing the likelihood, we discard the first two years of `y' (i.e., 2*252 trading days) to account for lags of the squared deGARCHed returns in the long-term component. This allows comparing the BIC of models with different values of m. You could decrease this, but you need to discard at least $2m$ values. The Matlab function uses constraints on the parameters following assumption 2 (for the short-term component) and assumption 3 (for the long-term component) of Conrad & Engle (2025). For details on the estimation, see section [A.1.1 in Conrad & Engle (2025)](http://dx.doi.org/10.2139/ssrn.3793571). 
+For the long-term component, you need to specify $m$, i.e. the number days over which $V_t^{(m)}$ is computed. Choose whether you want to use a fixed value of $m$ or let the optimal $m$ be selected as the one that minimizes the BIC. The `foptions` structure contains the researcher's choice for $m$. You either specifiy `foptions.choice = 'BIC'` if the optimal $m$ needs to be selected or `foptions.choice = 'fix'` together with the choice of your $m$ as `foptions.m=63`. When computing the likelihood, we discard the first two years of `y' (i.e., 2*252 trading days) to account for lags of the squared deGARCHed returns in the long-term component. This allows comparing the BIC of models with different values of m. You could decrease this, but you need to discard at least $2m$ values. The Matlab function uses constraints on the parameters following Assumption 2 (for the short-term component) and Assumption 3 (for the long-term component) of Conrad & Engle (2025). For details on the estimation, see section [A.1.1 in Conrad & Engle (2025)](http://dx.doi.org/10.2139/ssrn.3793571). 
 
 The following application of the MF-2GARCH replicates the second panel in Table 2 in Conrad & Engle (2025) for the MF2-GARCH-rw-m. In Conrad & Engle (2025), all models were estimates using OxMetrics. We use daily S&P 500 log-return data from January 1971 to June 2023. For the sub-period 1971-1983, the return data was initially obtained from the Federal Reserve Bank of St. Louis database.  Data from 1983 onwards are from TickData. 
 
@@ -127,19 +127,11 @@ First, you need to specifiy the maximum forecasting horizon using ```foptions.S`
 ```
 You must use the same sample as in estimation function for the forecasting function. Moreover, the function displays in the command window the forecasts (from the end of the sample) for the annualized volatility on the next day, next week (5 days), next month (21 days), next 6 months (126 days), and 12 months (252 days) based on the estimated parameters. 
 ```matlab
-annualized volatility forecast 1 day: 53.2229
-
-annualized volatility forecast 1 week (5 days):  49.2739
-
-annualized volatility forecast 1 moth (21 days):  34.4209
-
-annualized volatility forecast 1 day:  46.3527
-
-annualized volatility forecast 1 week (5 days): 43.0904
-
-annualized volatility forecast 1 moth (21 days):  30.8893
-
-annualized volatility forecast 6 moths (126 days):  18.2700
+annualized volatility forecast 1 day: 11.4935
+annualized volatility forecast 1 week (5 days): 12.4475
+annualized volatility forecast 1 month (21 days): 14.5593
+annualized volatility forecast 6 months (126 days): 15.4574
+annualized volatility forecast 1 year (252 days): 15.6806
 ```
 We now want to illustrate forecasting out of sample using a figure. The following code yields a figure of the forecasts of the conditional volatility and the long-term component in the last 50 days of the sample and the forecasts for the next S days: 
 ```matlab
