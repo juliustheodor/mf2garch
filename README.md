@@ -110,7 +110,7 @@ The function exports the following figure in the figures folder:
 
 <img src="figures/TimeSeries.png" width="50%" />
 
-Additionally, you can plot the news impact curve for the estimated model. Following Engle and Ng (1993), we use the NIC to illustrate how the conditional volatility is updated in response to new information. The NIC is presented in term of annualized volatilities (see equation (10) in Conrad & Engle (2025)). The following function provides a figure for the NIC: 
+Additionally, you can plot the news impact curve for the estimated model. Following Engle and Ng (1993), we use the NIC to illustrate how the conditional volatility is updated in response to new information. The NIC is presented in terms of annualized volatilities (see equation (10) in Conrad & Engle (2025)). The following function provides a figure for the NIC: 
 ```matlab
 [ r, NIC] = mf2_garch_nic(Z, h, tau, foptions, coeff);
 ```
@@ -133,7 +133,7 @@ annualized volatility forecast 1 month (21 days): 14.5593
 annualized volatility forecast 6 months (126 days): 15.4574
 annualized volatility forecast 1 year (252 days): 15.6806
 ```
-We now want to illustrate forecasting out of sample using a figure. The following code yields a figure of the forecasts of the conditional volatility and the long-term component in the last 50 days of the sample and the forecasts for the next S days: 
+We now want to illustrate forecasting out of sample using a figure. The following code yields a figure of the forecasts of long-term volatility and conditional volatility  in the last 50 days of the sample and the forecasts for the next S days: 
 ```matlab
 mf2_garch_out_of_sample_figure(sigma_annual, an_vola_forecast, tau_forecast_annual, annual_unconditional_vola, foptions)
 ```
