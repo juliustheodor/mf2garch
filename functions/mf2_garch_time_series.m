@@ -14,7 +14,8 @@ function  [] = mf2_garch_time_series(dates, sigma_annual, tau_annual)
     figure
     plot(dates(505:end), sigma_annual,'k-','LineWidth',1); hold on; 
     plot(dates(505:end), tau_annual,'r-','LineWidth',2); 
-    recessionplot; 
+    recessionplot; hold off 
+    ylim([0 max(sigma_annual*1.02)]); 
     legend({'$\sigma_t$ conditional volatility', ...
             '$\tau_t$ long-term volatility', 
             }, ...

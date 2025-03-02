@@ -176,12 +176,12 @@ function [horizon, forecast, an_vola_forecast, h_forecast, tau_forecast, tau_for
     end 
 
     if S > 20 
-    disp('annualized volatility forecast 1 moth (21 days): ');
+    disp('annualized volatility forecast 1 month (21 days): ');
     disp(an_vola_forecast(21));
     end 
 
     if S > 125 
-    disp('annualized volatility forecast 6 moths (126 days): ');
+    disp('annualized volatility forecast 6 months (126 days): ');
     disp(an_vola_forecast(126));
     end 
 

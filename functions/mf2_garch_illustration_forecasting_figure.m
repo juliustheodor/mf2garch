@@ -13,7 +13,6 @@ function  [] = mf2_garch_illustration_forecasting_figure(sigma_annual, an_vola_f
 %       foptions.cutoff: number of row in date vector from which you want to forecast 
 %   dates: vector of dates (not adjusted as tau and sigma, thus we use 2*252 in code below) 
 
-
 % OUTPUT: 
 % Figure saved as 'ForecastIllustration.png' in the figures folder.
 
