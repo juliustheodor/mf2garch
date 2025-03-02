@@ -1,9 +1,9 @@
 # MF2-GARCH Toolbox for Matlab (developed by Christian Conrad and Julius Schoelkopf, 2025)
 
-A Matlab package for estimating and forecasting volatility using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed in ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](http://dx.doi.org/10.2139/ssrn.3793571). The MF2-GARCH is used in ["Long-term volatility shapes the stock markets sensitivity to news“ by Conrad, Schoelkopf, and Tushteva (2024)](http://dx.doi.org/10.2139/ssrn.4632733): 
+A Matlab package for estimating and forecasting volatility using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed in ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](https://doi.org/10.1002/jae.3118). The MF2-GARCH is used in ["Long-term volatility shapes the stock markets sensitivity to news“ by Conrad, Schoelkopf, and Tushteva (2024)](http://dx.doi.org/10.2139/ssrn.4632733): 
 
 * A comprehensive toolbox for estimating and forecasting volatility using the MF2-GARCH-rw-m.
-* Code for five applications: estimation, news impact curve, out-of-sample forecasting, illustration of forecasting behavior 
+* Code for four applications: estimation, news impact curve, out-of-sample forecasting, illustration of forecasting behavior 
 
 ## Suggested Citation
 Please cite as: 
@@ -46,9 +46,9 @@ The MF2-GARCH can be estimated using the following function from our toolbox in 
 
 The function `mf2_garch_estimation(y,foptions)` gives you an estimation output for the seven parameters $\left(\mu, \alpha, \gamma, \beta, \lambda_0, \lambda_1, \lambda_2\right)$ of the short- and long-term component in the command window obtained by maximizing the log likelihood. The output of the function are the vectors for the coefficient estimates (`coeff`), the Bollerslev-Wooldridge robust standard errors  (`qmle_se`), and the corresponding p-values  (`p_value_qmle`). Moreover, the function `mf2_garch_estimation(y,foptions)` provides you with the standardized residuals $Z$, the fitted values for the short (`h`) and long-term component (`tau` or annualized `tau_annual`) as well as the time series for annualized conditional volatility (`sigma_annual`) and the estimate for the annualized unconditional volatility (`annual_unconditional_vola`). 
 
-For the long-term component, you need to specify $m$, i.e. the number days over which $V_t^{(m)}$ is computed. Choose whether you want to use a fixed value of $m$ or let the optimal $m$ be selected as the one that minimizes the BIC. The `foptions` structure contains the researcher's choice for $m$. You either specifiy `foptions.choice = 'BIC'` if the optimal $m$ needs to be selected or `foptions.choice = 'fix'` together with the choice of your $m$ as `foptions.m=63`. When computing the likelihood, we discard the first two years of `y' (i.e., 2*252 trading days) to account for lags of the squared  deGARCHed returns. This allows comparing the BIC of models with different values of m. You could decrease this, but you need to discard at least $2m$ values. The Matlab function uses constraints on the parameters following assumption 2 (for the short-term component) and assumption 3 (for the long-term component) of Conrad & Engle (2025). For details on the estimation, see section [A.1.1 in Conrad & Engle (2025)](http://dx.doi.org/10.2139/ssrn.3793571). 
+For the long-term component, you need to specify $m$, i.e. the number days over which $V_t^{(m)}$ is computed. Choose whether you want to use a fixed value of $m$ or let the optimal $m$ be selected as the one that minimizes the BIC. The `foptions` structure contains the researcher's choice for $m$. You either specifiy `foptions.choice = 'BIC'` if the optimal $m$ needs to be selected or `foptions.choice = 'fix'` together with the choice of your $m$ as `foptions.m=63`. When computing the likelihood, we discard the first two years of `y' (i.e., 2*252 trading days) to account for lags of the squared deGARCHed returns in the long-term component. This allows comparing the BIC of models with different values of m. You could decrease this, but you need to discard at least $2m$ values. The Matlab function uses constraints on the parameters following Assumption 2 (for the short-term component) and Assumption 3 (for the long-term component) of Conrad & Engle (2025). For details on the estimation, see section [A.1.1 in Conrad & Engle (2025)](https://doi.org/10.1002/jae.3118). 
 
-The following application of the MF-2GARCH replicates the second panel in Table 2 in Conrad & Engle (2025) for the MF2-GARCH-rw-m. In Conrad & Engle (2025), all models were estimates using OxMetrics. We use daily S&P 500 log-return data from January 1971 to June 2023. For the sub-period 1971-1983, the return data was initially obtained from the Federal Reserve Bank of St. Louis database.  Data from 1983 onwards are from TickData. 
+The following application of the MF2-GARCH replicates the second panel in Table 2 in [Conrad & Engle (2025)](https://doi.org/10.1002/jae.3118) for the MF2-GARCH-rw-m. In[Conrad & Engle (2025)](https://doi.org/10.1002/jae.3118), all models were estimates using OxMetrics. We use daily S&P 500 log-return data from January 1971 to June 2023. For the sub-period 1971-1983, the return data was initially obtained from the Federal Reserve Bank of St. Louis database.  Data from 1983 onwards are from TickData. 
 
 ```matlab
 %% Import the return data to Matlab (S&P500 returns from 1971-2023) 
@@ -98,7 +98,7 @@ If you additionally want to store the fitted values, specify the output of the f
 ```matlab
 [coeff, qmle_se, p_value_qmle,  Z, h, tau, sigma_annual, tau_annual, annual_unconditional_vola, foptions]  = mf2_garch_estimation(y,foptions);
 ```
-You can use this output for instance for a figure of the estimated conditional volatility and long-term volatility over the full-sample. The figure shows the estimated conditional volatility (black line) and longterm volatility (red line) from the MF2-GARCH-rw-63 model for the daily S\&P 500 returns. Grey shaded areas represent NBER recession periods for the US.
+You can use this output for instance for a figure of the estimated conditional volatility and long-term volatility over the full-sample. The figure shows the estimated conditional volatility (black line) and long-term volatility (red line) from the MF2-GARCH-rw-63 model for the daily S\&P 500 returns. Grey shaded areas represent NBER recession periods for the US.
 ```matlab
 % Extract the date column (not required for estimation, only for figure) 
 dates = datetime(Returns.OBS, 'InputFormat', 'MM/dd/yyyy'); 
@@ -110,7 +110,7 @@ The function exports the following figure in the figures folder:
 
 <img src="figures/TimeSeries.png" width="50%" />
 
-Alternatively, you can plot the news-impact-curve for the estimated model. Following Engle and Ng (1993), we use the NIC to illustrate how the conditional volatility is updated in response to new information. The NIC is presented in term of annualized volatilities (see equation (10) in Conrad & Engle (2025)). The following function provides a figure for the NIC: 
+Additionally, you can plot the news impact curve for the estimated model. Following Engle and Ng (1993), we use the NIC to illustrate how the conditional volatility is updated in response to new information. The NIC is presented in terms of annualized volatilities (see equation (10) in Conrad & Engle (2025)). The following function provides a figure for the NIC: 
 ```matlab
 [ r, NIC] = mf2_garch_nic(Z, h, tau, foptions, coeff);
 ```
@@ -127,28 +127,20 @@ First, you need to specifiy the maximum forecasting horizon using ```foptions.S`
 ```
 You must use the same sample as in estimation function for the forecasting function. Moreover, the function displays in the command window the forecasts (from the end of the sample) for the annualized volatility on the next day, next week (5 days), next month (21 days), next 6 months (126 days), and 12 months (252 days) based on the estimated parameters. 
 ```matlab
-annualized volatility forecast 1 day: 53.2229
-
-annualized volatility forecast 1 week (5 days):  49.2739
-
-annualized volatility forecast 1 moth (21 days):  34.4209
-
-annualized volatility forecast 1 day:  46.3527
-
-annualized volatility forecast 1 week (5 days): 43.0904
-
-annualized volatility forecast 1 moth (21 days):  30.8893
-
-annualized volatility forecast 6 moths (126 days):  18.2700
+annualized volatility forecast 1 day: 11.4935
+annualized volatility forecast 1 week (5 days): 12.4475
+annualized volatility forecast 1 month (21 days): 14.5593
+annualized volatility forecast 6 months (126 days): 15.4574
+annualized volatility forecast 1 year (252 days): 15.6806
 ```
-We now want to illustrate forecasting out of sample using a figure. The following code yields a figure of the forecasts of the conditional volatility and the long-term component in the last 50 days of the sample and the forecasts for the next S days: 
+We now want to illustrate forecasting out of sample using a figure. The following code yields a figure of the forecasts of long-term volatility and conditional volatility  in the last 50 days of the sample and the forecasts for the next S days: 
 ```matlab
 mf2_garch_out_of_sample_figure(sigma_annual, an_vola_forecast, tau_forecast_annual, annual_unconditional_vola, foptions)
 ```
 <img src="figures/ForecastEndofSample.png" width="50%" />
 
 ## Illustration of Forecasting behavior 
-Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance, as in Figure 5 in Conrad & Engle (2025. We want to forecast volatility from August 10, 2011 (10249 in dates vector) 150 days into the future and use the forecasting function:  
+Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance, as in Figure 5 in Conrad & Engle (2025). We want to forecast volatility from August 10, 2011 (10249 in dates vector) 120 days into the future and use the forecasting function:  
 
 ```matlab
 % Specifiy the maximum forecasting horizon: 
@@ -170,4 +162,4 @@ The following figure is saved as 'ForecastIllustration.png' in the figures folde
 
 <img src="figures/ForecastIllustration_wide.png" width="80%" />
 
-The figure shows the conditional volatility (solid black line) from an MF2-GARCH-rw-m model with $m = 63$ estimated for S&P 500 returns. From August 10, 2011 (indicated by the black vertical line) onwards, we compute volatility forecasts (dashed black line) for 120 days in the future. The plot also shows the long-term components (red line) and the forecast of long-term volatility (dashed red line). All quantities are annualized.  In the medium run, the forecast for the conditional volatility converges towards the forecast of the long-term component (dashed red line). That is, the forecast decreases below the unconditional volatility. Only in the very long run, the MF2-GARCH forecast will converge towards the unconditional volatility. This illustrates that the MF2-GARCH forecast captures the empirical observation that there are persistent cyclical movements of the conditional volatility around the unconditional volatility.
+The figure shows the conditional volatility (solid black line) from an MF2-GARCH-rw-m model with $m = 63$ estimated for S&P 500 returns. From August 10, 2011 (indicated by the black vertical line) onwards, we compute volatility forecasts (dashed black line) for 120 days in the future. The plot also shows long-term volatility (red line) and the forecast of long-term volatility (dashed red line). All quantities are annualized. The conditional volatility as well as the long-term volatility are below the unconditional volatility until there is a jump in volatility up to a level above 50%, driven by the European sovereign debt crisis and a downgrade of the U.S.’s credit rating by Standard & Poor’s. In the medium run, the forecast for the conditional volatility converges towards the forecast of the long-term volatility (dashed red line). In the very long run, the MF2-GARCH forecast will converge towards the unconditional volatility (blue dashed line). 
