@@ -164,6 +164,6 @@ mf2_garch_illustration_forecasting_figure(sigma_annual, an_vola_forecast, tau_fo
 ```
 The following figure is saved as 'ForecastIllustration.png' in the figures folder: 
 
-<img src="figures/ForecastIllustration_wide.png" width="80%" />
+<img src="figures/ForecastIllustrationwide.png" width="80%" />
 
 The figure shows the conditional volatility (solid black line) from an MF2-GARCH-rw-m model with $m = 63$ estimated for S&P 500 returns. From August 10, 2011 (indicated by the black vertical line) onwards, we compute volatility forecasts (dashed black line) for 120 days in the future. The plot also shows long-term volatility (red line) and the forecast of long-term volatility (dashed red line). All quantities are annualized. The conditional volatility as well as the long-term volatility are below the unconditional volatility until there is a jump in volatility up to a level above 50%, driven by the European sovereign debt crisis and a downgrade of the U.S.’s credit rating by Standard & Poor’s. In the medium run, the forecast for the conditional volatility converges towards the forecast of the long-term volatility (dashed red line). In the very long run, the MF2-GARCH forecast will converge towards the unconditional volatility (blue dashed line). 
