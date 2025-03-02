@@ -38,10 +38,11 @@ y = Returns.RET_SPX;
 % V_{t-1}^m is computed. Choose whether you want to use a fixed value of m or 
 % let the optimal m be selected as the one that minimizes the BIC:         
 
-foptions.choice = 'fix'; % choices: 'BIC' or 'fix' (specify m) 
+foptions.choice = 'BIC'; % choices: 'BIC' or 'fix' (specify m) 
 
 % If you select `BIC', the code will save the optimal m after running 
-% mf2_garch_estimation for forecasting or the NIC. 
+% mf2_garch_estimation for forecasting or the NIC. Moreover, the code will
+% generate a figure that plots the BIC as a function of m. 
 
 % If f.options.choice = 'fix', please specify the m you choose here: 
 

@@ -80,6 +80,15 @@ fprintf('Optimal m =  %d', m);
 
 foptions.m = m; 
 
+% Plot of BIC
+figure
+plot(20:150, BIC_vec, 'k-'); hold on;
+xline(m, 'r-', 'LineWidth', 1); hold off 
+xlabel('$m$', 'Interpreter', 'latex'); ylabel('BIC', 'Interpreter', 'latex'); 
+set(gcf, 'Color', 'w');
+set(gca,'TickLabelInterpreter','latex', 'FontSize', 14); 
+saveas(gcf,'figures/BIC.png'); 
+
 else
     m = foptions.m; 
 end
