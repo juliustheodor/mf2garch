@@ -27,7 +27,7 @@ We do not assume any responsibilities for results produced with the available co
 # Applications 
 
 ## Estimation of the MF2-GARCH-rw-m model in Matlab for S&P 500 stock returns 
-Define daily log-returns as $y_t = \mu + \sigma_t Z_t= \mu + \sqrt{h_t \tau_t} Z_t$, where the $Z_t$ are i.i.d. with mean zero, variance one, and symmetric density. In the following, we denote the de-meaned returns by $r_t = y_t - \mu$. In the following, $r_t - The fourth moment of the $Z_t$ is denoted by $\kappa$. $\sigma_t^2$ denotes the conditional variance and the short- and long-term volatility components are given by $h_t$ and $\tau_t$. Let `y` be a (Tx1) vector of daily log-returns. The short-term volatility component is defined as a unit variance GJR-GARCH(1,1)
+Define daily log-returns as $y_t = \mu + \sigma_t Z_t= \mu + \sqrt{h_t \tau_t} Z_t$, where the $Z_t$ are i.i.d. with mean zero, variance one, and symmetric density. In the following, we denote the de-meaned returns by $r_t = y_t - \mu$. The fourth moment of the $Z_t$ is denoted by $\kappa$. $\sigma_t^2$ denotes the conditional variance and the short- and long-term volatility components are given by $h_t$ and $\tau_t$. Let `y` be a (Tx1) vector of daily log-returns. The short-term volatility component is defined as a unit variance GJR-GARCH(1,1)
 ```math
 h_t=(1-\phi)+\left(\alpha+\gamma \mathbf{1}_{\left\{r_{t-1}<0\right\}}\right) \frac{r_{t-1}^2}{\tau_{t-1}}+\beta h_{t-1}
 ```
