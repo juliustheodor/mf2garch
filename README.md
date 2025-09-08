@@ -46,7 +46,7 @@ The MF2-GARCH can be estimated using the following function from our toolbox in 
 
 The function `mf2_garch_estimation(y,foptions)` gives you an estimation output for the seven parameters $\left(\mu, \alpha, \gamma, \beta, \lambda_0, \lambda_1, \lambda_2\right)$ of the short- and long-term component in the command window obtained by maximizing the log likelihood. The output of the function are the vectors for the coefficient estimates (`coeff`), the Bollerslev-Wooldridge robust standard errors  (`qmle_se`), and the corresponding p-values  (`p_value_qmle`). Moreover, the function `mf2_garch_estimation(y,foptions)` provides you with the standardized residuals $Z$, the fitted values for the short (`h`) and long-term component (`tau` or annualized `tau_annual`) as well as the time series for annualized conditional volatility (`sigma_annual`) and the estimate for the annualized unconditional volatility (`annual_unconditional_vola`). 
 
-For the long-term component, you need to specify $m$, i.e. the number days over which $V_t^{(m)}$ is computed. Choose whether you want to use a fixed value of $m$ or let the optimal $m$ be selected as the one that minimizes the BIC. The `foptions` structure contains the researcher's choice for $m$. You either specifiy `foptions.choice = 'BIC'` if the optimal $m$ needs to be selected or `foptions.choice = 'fix'` together with the choice of your $m$ as `foptions.m=63`. When specifying  `foptions.choice = 'BIC'`, the code will choose the optimal m between 20 and 150 and the code will generate a figure that plots the BIC as a function of m. 
+For the long-term component, you need to specify $m$, i.e. the number days over which $V_t^{(m)}$ is computed. Choose whether you want to use a fixed value of $m$ or let the optimal $m$ be selected as the one that minimizes the BIC. The `foptions` structure contains the researcher's choice for $m$. You either specify `foptions.choice = 'BIC'` if the optimal $m$ needs to be selected or `foptions.choice = 'fix'` together with the choice of your $m$ as `foptions.m=63`. When specifying  `foptions.choice = 'BIC'`, the code will choose the optimal m between 20 and 150 and the code will generate a figure that plots the BIC as a function of m. 
 
 <img src="figures/BIC.png" width="50%" />
 
@@ -125,7 +125,7 @@ The function exports the following figure in the figures folder:
 
 ## Forecasting at the end of the sample 
 
-First, you need to specifiy the maximum forecasting horizon using ```foptions.S```, e.g. ```foptions.S = 250``` if you want to forecast the next 250 days. Next, you can use the forecasting function that provides forecasts for the (annualized) conditional volatility, the short- and (annualized) long-term component: 
+First, you need to specify the maximum forecasting horizon using ```foptions.S```, e.g. ```foptions.S = 250``` if you want to forecast the next 250 days. Next, you can use the forecasting function that provides forecasts for the (annualized) conditional volatility, the short- and (annualized) long-term component: 
 ```matlab
 [horizon, forecast, an_vola_forecast, h_forecast, tau_forecast, tau_forecast_annual]  = mf2_garch_forecasting(y, Z, h, tau, coeff, foptions);
 ```
@@ -147,7 +147,7 @@ mf2_garch_out_of_sample_figure(sigma_annual, an_vola_forecast, tau_forecast_annu
 Last, we want to illustrate the MF2-GARCH’s out-of-sample forecast performance, as in Figure 5 in Conrad & Engle (2025). We want to forecast volatility from August 10, 2011 (10249 in dates vector) 120 days into the future and use the forecasting function:  
 
 ```matlab
-% Specifiy the maximum forecasting horizon: 
+% Specify the maximum forecasting horizon: 
 foptions.S = 120; 
 
 % Estimation of the MF2-GARCH We want to forecast volatility from August 10, 2011 (10249 in dates vector) 150 days into the future. Specify the cutoff from where you want to forecast: 

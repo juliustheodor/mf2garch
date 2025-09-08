@@ -1,0 +1,24 @@
+
+
+% Bibstyle aea.bst version 2009.05.20
+
+\begin{thebibliography}{xx}
+
+\harvarditem[Conrad \harvardand\ Engle]{Conrad \harvardand\
+  Engle}{2025}{ConradEngle2021}
+{\bf Conrad, Christian, and Robert~F. Engle.} 2025. ``Modelling Volatility
+  Cycles: The MF2-GARCH Model.'' {\em Journal of Applied Econometrics},
+  40(4):~438--454.
+
+\harvarditem[Conrad et~al.]{Conrad, Schoelkopf \harvardand\
+  Tushteva}{2025}{conradschoelkopftushteva:2025}
+{\bf Conrad, Christian, Julius~Theodor Schoelkopf, and Nikoleta Tushteva.}
+  2025. ``Long-Term Volatility Shapes the Stock Market's Sensitivity to News.''
+  {\em Working Paper}. Available at SSRN:
+  \url{https://ssrn.com/abstract=4632733}.
+
+\harvarditem[Schwarz]{Schwarz}{1978}{Schwarz1978}
+{\bf Schwarz, Gideon.} 1978. ``{Estimating the Dimension of a Model}.'' {\em
+  Annals of Statistics}, 6(2):~461--464.
+
+\end{thebibliography}
