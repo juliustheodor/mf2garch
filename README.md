@@ -1,17 +1,17 @@
 # MF2-GARCH Toolbox for Matlab (developed by Christian Conrad and Julius Schoelkopf, 2025)
 
-A Matlab package for estimating and forecasting volatility using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed in ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](https://doi.org/10.1002/jae.3118). The MF2-GARCH is used in ["Long-term volatility shapes the stock markets sensitivity to news“ by Conrad, Schoelkopf, and Tushteva (2024)](http://dx.doi.org/10.2139/ssrn.4632733): 
+A Matlab package for estimating and forecasting volatility using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed in ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118). The MF2-GARCH is used in ["Long-term Volatility shapes the Stock Markets Sensitivity to News“ by Conrad, Schoelkopf, and Tushteva (2024)](http://dx.doi.org/10.2139/ssrn.4632733): 
 
 * A comprehensive toolbox for estimating and forecasting volatility using the MF2-GARCH-rw-m.
 * Code for four applications: estimation, news impact curve, out-of-sample forecasting, illustration of forecasting behavior 
 
 ## Suggested Citation
 Please cite as: 
-> Conrad, Christian and Engle, Robert F., Modelling Volatility Cycles: The MF2-GARCH Model (2005). Journal of Applied Econometrics.
+> Conrad, Christian and Engle, Robert F., Modelling Volatility Cycles: The MF2-GARCH Model (2005). Journal of Applied Econometrics. [https://doi.org/10.1002/jae.3118](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118).
  
 and
 
-> Conrad, Christian and Schoelkopf, Julius Theodor and Tushteva, Nikoleta, Long-Term Volatility Shapes the Stock Market's Sensitivity to News (2024). Available at SSRN:  http://dx.doi.org/10.2139/ssrn.4632733
+> Conrad, Christian and Schoelkopf, Julius Theodor and Tushteva, Nikoleta, Long-Term Volatility Shapes the Stock Market's Sensitivity to News (2024). Available at SSRN:  http://dx.doi.org/10.2139/ssrn.4632733.
 
 and 
 
@@ -27,17 +27,17 @@ We do not assume any responsibilities for results produced with the available co
 # Applications 
 
 ## Estimation of the MF2-GARCH-rw-m model in Matlab for S&P 500 stock returns 
-Define daily log-returns as $y_t=\sigma_t Z_t=$ $\sqrt{h_t \tau_t} Z_t$, where the $Z_t$ are i.i.d. with mean zero, variance one, and symmetric density. The fourth moment of the $Z_t$ is denoted by $\kappa$. $\sigma_t^2$ denotes the conditional variance and the short- and long-term volatility components are given by $h_t$ and $\tau_t$. Let `y` be a (Tx1) vector of daily log-returns. The short-term volatility component is defined as a unit variance GJR-GARCH(1,1)
+Define daily log-returns as $y_t = \mu + \sigma_t Z_t= \mu + \sqrt{h_t \tau_t} Z_t$, where the $Z_t$ are i.i.d. with mean zero, variance one, and symmetric density. The fourth moment of the $Z_t$ is denoted by $\kappa$. In the following, we write the de-meaned returns as $r_t = y_t - \mu$. The conditional variance is denoted by $\sigma_t^2$ and the short- and long-term volatility components are given by $h_t$ and $\tau_t$. Let `y` be a (Tx1) vector of daily log-returns. The short-term volatility component is defined as a unit variance GJR-GARCH(1,1)
 ```math
-h_t=(1-\phi)+\left(\alpha+\gamma \mathbf{1}_{\left\{y_{t-1}<0\right\}}\right) \frac{y_{t-1}^2}{\tau_{t-1}}+\beta h_{t-1}
+h_t=(1-\phi)+\left(\alpha+\gamma \mathbf{1}_{\left\{r_{t-1}<0\right\}}\right) \frac{r_{t-1}^2}{\tau_{t-1}}+\beta h_{t-1}
 ```
-and the long-term component is specified as a MEM equation for the conditional expectation of $V_t = y_t^2/h_t$  (squared deGARCHed returns):
+and the long-term component is specified as a MEM equation for the conditional expectation of $V_t = r_t^2/h_t$  (squared deGARCHed returns):
 ```math
 \tau_t=\lambda_0+\lambda_1 V_{t-1}^{(m)}+\lambda_2 \tau_{t-1}
 ```
 where
 ```math
-V_{t-1}^{(m)}=\frac{1}{m} \sum_{j=1}^m V_{t-j}=\frac{1}{m} \sum_{j=1}^m \frac{y_{t-j}^2}{h_{t-j}}.
+V_{t-1}^{(m)}=\frac{1}{m} \sum_{j=1}^m V_{t-j}=\frac{1}{m} \sum_{j=1}^m \frac{r_{t-j}^2}{h_{t-j}}.
 ```
 The MF2-GARCH can be estimated using the following function from our toolbox in Matlab
 ```matlab
@@ -46,13 +46,17 @@ The MF2-GARCH can be estimated using the following function from our toolbox in 
 
 The function `mf2_garch_estimation(y,foptions)` gives you an estimation output for the seven parameters $\left(\mu, \alpha, \gamma, \beta, \lambda_0, \lambda_1, \lambda_2\right)$ of the short- and long-term component in the command window obtained by maximizing the log likelihood. The output of the function are the vectors for the coefficient estimates (`coeff`), the Bollerslev-Wooldridge robust standard errors  (`qmle_se`), and the corresponding p-values  (`p_value_qmle`). Moreover, the function `mf2_garch_estimation(y,foptions)` provides you with the standardized residuals $Z$, the fitted values for the short (`h`) and long-term component (`tau` or annualized `tau_annual`) as well as the time series for annualized conditional volatility (`sigma_annual`) and the estimate for the annualized unconditional volatility (`annual_unconditional_vola`). 
 
+<<<<<<< HEAD
 For the long-term component, you need to specify $m$, i.e. the number days over which $V_t^{(m)}$ is computed. Choose whether you want to use a fixed value of $m$ or let the optimal $m$ be selected as the one that minimizes the BIC. The `foptions` structure contains the researcher's choice for $m$. You either specify `foptions.choice = 'BIC'` if the optimal $m$ needs to be selected or `foptions.choice = 'fix'` together with the choice of your $m$ as `foptions.m=63`. When specifying  `foptions.choice = 'BIC'`, the code will choose the optimal m between 20 and 150 and the code will generate a figure that plots the BIC as a function of m. 
+=======
+For the long-term component, you need to specify $m$, i.e. the number days over which $V_t^{(m)}$ is computed. Choose whether you want to use a fixed value of $m$ or let the optimal $m$ be selected as the one that minimizes the BIC. The `foptions` structure contains the researcher's choice for $m$. You either specifiy `foptions.choice = 'BIC'` if the optimal $m$ needs to be selected or `foptions.choice = 'fix'` together with the choice of your $m$ as `foptions.m=63`. When specifying  `foptions.choice = 'BIC'`, the code will first estimate models for values of $m$ between 20 and 150 and then determines the optimal $m$ as the one that minimizes the BIC. Moreover, the code will generate a figure that plots the BIC as a function of $m$. As shown in Figure 3 in [Conrad & Engle (2025)](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118), the lowest value of the BIC materializes for $m=63$ (red line): 
+>>>>>>> d768eb02611246d03e576cffa27004d6dd46e62c
 
 <img src="figures/BIC.png" width="50%" />
 
-When computing the likelihood, we discard the first two years of `y' (i.e., 2*252 trading days) to account for lags of the squared deGARCHed returns in the long-term component. This allows comparing the BIC of models with different values of m. You could decrease this, but you need to discard at least $2m$ values. The Matlab function uses constraints on the parameters following Assumption 2 (for the short-term component) and Assumption 3 (for the long-term component) of Conrad & Engle (2025). For details on the estimation, see section [A.1.1 in Conrad & Engle (2025)](https://doi.org/10.1002/jae.3118). 
+When computing the likelihood, we discard the first two years of `y' (i.e., 2*252 trading days) to account for lags of the squared deGARCHed returns in the long-term component. This allows comparing the BIC of models with different values of m. You could decrease this, but you need to discard at least $2m$ values. The Matlab function uses constraints on the parameters following Assumption 2 (for the short-term component) and Assumption 3 (for the long-term component) of Conrad & Engle (2025). For details on the estimation, see section [A.1.1 in Conrad & Engle (2025)](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118). 
 
-The following application of the MF2-GARCH replicates the second panel in Table 2 in [Conrad & Engle (2025)](https://doi.org/10.1002/jae.3118) for the MF2-GARCH-rw-m. In[Conrad & Engle (2025)](https://doi.org/10.1002/jae.3118), all models were estimates using OxMetrics. We use daily S&P 500 log-return data from January 1971 to June 2023. For the sub-period 1971-1983, the return data was initially obtained from the Federal Reserve Bank of St. Louis database.  Data from 1983 onwards are from TickData. 
+The following application of the MF2-GARCH replicates the second panel in Table 2 in [Conrad & Engle (2025)](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118) for the MF2-GARCH-rw-m. In [Conrad & Engle (2025)](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118), all models were estimates using OxMetrics. We use daily S&P 500 log-return data from January 1971 to June 2023. For the sub-period 1971-1983, the return data was initially obtained from the Federal Reserve Bank of St. Louis database.  Data from 1983 onwards are from TickData. 
 
 ```matlab
 %% Import the return data to Matlab (S&P500 returns from 1971-2023) 
@@ -164,6 +168,6 @@ mf2_garch_illustration_forecasting_figure(sigma_annual, an_vola_forecast, tau_fo
 ```
 The following figure is saved as 'ForecastIllustration.png' in the figures folder: 
 
-<img src="figures/ForecastIllustration_wide.png" width="80%" />
+<img src="figures/ForecastIllustrationwide.png" width="80%" />
 
 The figure shows the conditional volatility (solid black line) from an MF2-GARCH-rw-m model with $m = 63$ estimated for S&P 500 returns. From August 10, 2011 (indicated by the black vertical line) onwards, we compute volatility forecasts (dashed black line) for 120 days in the future. The plot also shows long-term volatility (red line) and the forecast of long-term volatility (dashed red line). All quantities are annualized. The conditional volatility as well as the long-term volatility are below the unconditional volatility until there is a jump in volatility up to a level above 50%, driven by the European sovereign debt crisis and a downgrade of the U.S.’s credit rating by Standard & Poor’s. In the medium run, the forecast for the conditional volatility converges towards the forecast of the long-term volatility (dashed red line). In the very long run, the MF2-GARCH forecast will converge towards the unconditional volatility (blue dashed line). 
