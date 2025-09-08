@@ -7,15 +7,15 @@ A Matlab package for estimating and forecasting volatility using the multiplicat
 
 ## Suggested Citation
 Please cite as: 
-> Conrad, Christian and Engle, Robert F., Modelling Volatility Cycles: The MF2-GARCH Model (2005). Journal of Applied Econometrics. [https://doi.org/10.1002/jae.3118](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118).
+> Conrad, Christian and Engle, Robert F., Modelling Volatility Cycles: The MF2-GARCH Model (2005). Journal of Applied Econometrics,  40(4): 438--454. [https://doi.org/10.1002/jae.3118](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118).
  
 and
 
-> Conrad, Christian and Schoelkopf, Julius Theodor and Tushteva, Nikoleta, Long-Term Volatility Shapes the Stock Market's Sensitivity to News (2024). Available at SSRN:  http://dx.doi.org/10.2139/ssrn.4632733.
+> Conrad, Christian and Schoelkopf, Julius Theodor and Tushteva, Nikoleta, Long-Term Volatility Shapes the Stock Market's Sensitivity to News (2025, first version 2023). Available at SSRN:  http://dx.doi.org/10.2139/ssrn.4632733.
 
 and 
 
-> Conrad, Christian and Julius Schoelkopf. 2025. MF2-GARCH Toolbox for Matlab. Matlab package version 0.1.0. 
+> Conrad, Christian and Schoelkopf, Julius Theodor (2025). MF2-GARCH Toolbox for Matlab. Matlab package version 0.1.0. 
 
 ## Contact 
 Please address any questions about the Matlab code to:

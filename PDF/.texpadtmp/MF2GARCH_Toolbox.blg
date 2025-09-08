@@ -3,43 +3,9 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: /Users/schoelkopf/Documents/GitHub/mf2garch/PDF/.texpadtmp/MF2GARCH_Toolbox.aux
 The style file: ../aea5.bst
 Database file #1: ../thesis.bib
-Unbalanced braces---line 1643 of file ../thesis.bib
- : 
- : }
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 2734 of file ../thesis.bib
- : 
- : title = {Housing Dynamics over the Business Cycle},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 4251 of file ../thesis.bib
- :   
- :   number = "1",
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 9364 of file ../thesis.bib
- :   
- :   %edition =  {1st}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 9500 of file ../thesis.bib
- :   pages = 369 
- :               410,
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 9507 of file ../thesis.bib
- : 
- : year = 2018,
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 17149 of file ../thesis.bib
- :   
- :   pages =   {49-64},}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 You've used 3 entries,
             2695 wiz_defined-function locations,
-            1140 strings with 11736 characters,
+            608 strings with 4534 characters,
 and the built_in function-call counts, 15131 in all, are:
 = -- 2504
 > -- 165
@@ -78,4 +44,3 @@ warning$ -- 0
 while$ -- 72
 width$ -- 0
 write$ -- 18
-(There were 7 error messages)
