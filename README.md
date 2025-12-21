@@ -1,17 +1,17 @@
 # MF2-GARCH Toolbox for Matlab (developed by Christian Conrad and Julius Schoelkopf, 2025)
 
-A Matlab package for estimating and forecasting volatility using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed in ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118). The MF2-GARCH is used in ["Long-term Volatility shapes the Stock Markets Sensitivity to News“ by Conrad, Schoelkopf, and Tushteva (2024)](http://dx.doi.org/10.2139/ssrn.4632733): 
+A Matlab package for estimating and forecasting volatility using the multiplicative factor multi-frequency GARCH (MF2-GARCH) proposed in ["Modelling Volatility Cycles: The MF2-GARCH Model" by Conrad & Engle (2025)](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118). The MF2-GARCH is used in ["Long-term Volatility shapes the Stock Markets Sensitivity to News“ by Conrad, Schoelkopf, and Tushteva (2025, Forthcoming in the Journal of Econometrics)](https://doi.org/10.1016/j.jeconom.2025.106148): 
 
 * A comprehensive toolbox for estimating and forecasting volatility using the MF2-GARCH-rw-m.
 * Code for four applications: estimation, news impact curve, out-of-sample forecasting, illustration of forecasting behavior 
 
 ## Suggested Citation
 Please cite as: 
-> Conrad, Christian and Engle, Robert F., Modelling Volatility Cycles: The MF2-GARCH Model (2005). Journal of Applied Econometrics,  40(4): 438--454. [https://doi.org/10.1002/jae.3118](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118).
+> Conrad, Christian and Engle, Robert F., Modelling Volatility Cycles: The MF2-GARCH Model (2025). Journal of Applied Econometrics,  40(4): 438--454. [https://doi.org/10.1002/jae.3118](https://onlinelibrary.wiley.com/doi/full/10.1002/jae.3118).
  
 and
 
-> Conrad, Christian and Schoelkopf, Julius Theodor and Tushteva, Nikoleta, Long-Term Volatility Shapes the Stock Market's Sensitivity to News (2025, first version 2023). Available at SSRN:  http://dx.doi.org/10.2139/ssrn.4632733.
+> Conrad, Christian and Schoelkopf, Julius Theodor and Tushteva, Nikoleta, Long-Term Volatility Shapes the Stock Market's Sensitivity to News (2025, first version 2023). Forthcoming in the Journal of Econometrics [https://doi.org/10.1016/j.jeconom.2025.106148](https://doi.org/10.1016/j.jeconom.2025.106148).
 
 and 
 
